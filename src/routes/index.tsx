@@ -282,7 +282,13 @@ function Portfolio() {
       </Section>
 
       {/* WORK */}
-      <Section id="work" eyebrow="02 — Selected Work" title="Things I'm Building.">
+      <Section
+        id="work"
+        eyebrow="02 — Selected Work"
+        title="Things I'm Building."
+        subtitle="A selection of projects spanning software engineering, machine learning and research."
+      >
+
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((p, i) => (
             <Reveal key={p.title} delay={i * 60}>
