@@ -581,9 +581,10 @@ function Portfolio() {
                 Let's build something <span className="italic text-muted-foreground">worthwhile.</span>
               </h2>
               <p className="mt-6 max-w-xl mx-auto text-muted-foreground">
-                Open to internships, research collaborations, and engineering
-                roles where I can keep learning and contributing.
+                Interested in software engineering, machine learning, research,
+                or simply connecting over interesting technical ideas.
               </p>
+
               <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
                 <a
                   href="mailto:hello@example.com"
