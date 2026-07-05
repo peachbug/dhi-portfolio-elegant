@@ -554,13 +554,28 @@ function Portfolio() {
         </div>
       </Section>
 
+      {/* CURRENTLY */}
+      <Section id="currently" eyebrow="07 — Currently" title="Currently.">
+        <ul className="max-w-2xl space-y-3">
+          {currentlyItems.map((item, i) => (
+            <Reveal key={item} delay={i * 60} as="li">
+              <div className="flex items-start gap-3 rounded-xl border border-border bg-card px-5 py-4 transition-colors hover:border-foreground/20">
+                <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary shrink-0" />
+                <span className="text-[15px] leading-relaxed">{item}</span>
+              </div>
+            </Reveal>
+          ))}
+        </ul>
+      </Section>
+
       {/* CONTACT */}
-      <section id="contact" className="px-6 py-32">
+      <section id="contact" className="px-6 py-32 border-t border-border">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <div className="rounded-3xl border border-border bg-subtle p-12 md:p-20 text-center">
               <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                <Sparkles className="h-3.5 w-3.5" /> 07 — Contact
+                <Sparkles className="h-3.5 w-3.5" /> 08 — Contact
+
               </div>
               <h2 className="mt-4 font-display text-5xl md:text-7xl tracking-tight text-balance">
                 Let's build something <span className="italic text-muted-foreground">worthwhile.</span>
