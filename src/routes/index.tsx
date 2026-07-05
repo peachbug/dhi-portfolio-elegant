@@ -623,7 +623,7 @@ function Portfolio() {
           <div className="flex items-center gap-2 font-mono text-xs">
             <GraduationCap className="h-3.5 w-3.5" /> VIT Chennai
             <span className="mx-2">·</span>
-            <Briefcase className="h-3.5 w-3.5" /> Engineering
+            <Briefcase className="h-3.5 w-3.5" /> Software Engineering · Machine Learning
             <span className="mx-2">·</span>
             <FlaskConical className="h-3.5 w-3.5" /> Research
           </div>
