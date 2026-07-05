@@ -272,11 +272,12 @@ function Portfolio() {
           <p className="text-lg leading-relaxed text-muted-foreground">
             Alongside academics, I've completed an industry internship at
             Alstom, earned the AWS Certified Machine Learning Engineer –
-            Associate certification, and actively contribute to research in
+            Associate certification, and currently contributing to research in
             quantum machine learning and deep learning. Outside academics, I
             enjoy solving algorithmic problems, reading, and continuously
             improving my engineering skills through personal projects.
           </p>
+
         </div>
       </Section>
 
