@@ -442,9 +442,15 @@ function Portfolio() {
                 <h3 className="mt-1 text-xl font-medium tracking-tight">
                   AWS Certified Machine Learning Engineer – Associate
                 </h3>
-                <div className="text-sm text-muted-foreground mt-1">
-                  Click to view credential details
+                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs font-mono text-muted-foreground">
+                  <span className="inline-flex items-center gap-1.5">
+                    <Calendar className="h-3.5 w-3.5" /> Issued June 2026
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <ShieldCheck className="h-3.5 w-3.5" /> Valid until June 2029
+                  </span>
                 </div>
+
               </div>
               <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-all group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </div>
