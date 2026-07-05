@@ -32,6 +32,8 @@ export const Route = createFileRoute("/")({
 });
 
 // Easy to update later
+const LEETCODE_SOLVED = 190;
+
 const stats: Array<{
   value?: number;
   decimals?: number;
@@ -44,8 +46,16 @@ const stats: Array<{
   { static: "AWS", label: "Machine Learning Engineer", sub: "Associate" },
   { static: "Alstom", label: "Industry Internship", sub: "Data Science & ML" },
   { static: "Research", label: "2 Internships", sub: "QML + Audio" },
-  { value: 190, suffix: "+", label: "LeetCode Problems", sub: "Solved" },
+  { value: LEETCODE_SOLVED, suffix: "+", label: "LeetCode Problems", sub: "Solved" },
 ];
+
+const currentlyItems = [
+  "Preparing for AWS Certified Solutions Architect – Associate",
+  "Building a BEV Intelligent Power Module failure prediction system",
+  "Researching deep learning based audio steganography",
+  "Solving Striver's DSA Sheet",
+];
+
 
 type Project = {
   title: string;
