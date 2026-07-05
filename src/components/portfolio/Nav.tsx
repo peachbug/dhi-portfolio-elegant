@@ -43,11 +43,13 @@ export function Nav() {
           ))}
         </div>
         <a
-          href="#contact"
+          href="/resume.pdf"
+          download
           className="text-sm font-medium rounded-full bg-foreground text-background px-4 py-1.5 hover:bg-foreground/90 transition-colors"
         >
-          Get in touch
+          Resume
         </a>
+
       </nav>
     </header>
   );
