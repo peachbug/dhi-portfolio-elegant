@@ -25,7 +25,12 @@ import {
   FileText,
   ExternalLink,
   ShieldCheck,
+  CheckCircle2,
+  Calendar,
+  BadgeCheck,
+  Hash,
 } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
