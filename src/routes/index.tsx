@@ -118,18 +118,19 @@ const research = [
     title:
       "Robustness of Hybrid-Classical Binary Classifiers Under Realistic Remote Sensing Degradations",
     status: "Journal Submitted",
-    meta: "Submitted to Earth Science Informatics · 2026",
+    pills: ["Journal Submitted", "Earth Science Informatics", "2026"],
     description:
       "Research investigating the robustness of hybrid quantum-classical classifiers under realistic remote sensing degradations.",
   },
   {
     title: "Deep Learning Based Audio Steganography",
     status: "Ongoing Research",
-    meta: "SCOPE SRIP, VIT Chennai",
+    pills: ["SRIP Internship", "SCOPE, VIT Chennai", "2025"],
     description:
       "Research focused on improving payload capacity, imperceptibility, and robustness in audio steganography using deep learning techniques.",
   },
 ];
+
 
 const skillGroups = [
   {
