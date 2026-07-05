@@ -390,9 +390,17 @@ function Portfolio() {
                 <h3 className="mt-5 text-lg font-medium tracking-tight leading-snug">
                   {r.title}
                 </h3>
-                <div className="mt-2 text-xs font-mono text-muted-foreground">
-                  {r.meta}
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {r.pills.map((pill) => (
+                    <span
+                      key={pill}
+                      className="text-[11px] font-mono rounded-md bg-subtle border border-border px-2 py-1 text-muted-foreground"
+                    >
+                      {pill}
+                    </span>
+                  ))}
                 </div>
+
                 <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
                   {r.description}
                 </p>
