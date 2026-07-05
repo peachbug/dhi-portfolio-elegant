@@ -349,7 +349,17 @@ function Portfolio() {
                 <h3 className="text-xl font-medium tracking-tight">{e.role}</h3>
                 <span className="text-xs font-mono text-muted-foreground">{e.period}</span>
               </div>
-              <div className="text-sm text-primary mt-1">{e.company}</div>
+              <div className="mt-2 flex items-center gap-2.5">
+                <span
+                  aria-hidden
+                  className="inline-flex h-6 w-6 items-center justify-center rounded-md border border-border bg-subtle text-[10px] font-mono font-semibold tracking-tight text-primary"
+                  title="Alstom"
+                >
+                  AL
+                </span>
+                <span className="text-sm text-primary">{e.company}</span>
+              </div>
+
               <ul className="mt-3 space-y-2 max-w-2xl">
                 {e.bullets.map((b) => (
                   <li key={b} className="text-[15px] leading-relaxed text-muted-foreground flex gap-3">
