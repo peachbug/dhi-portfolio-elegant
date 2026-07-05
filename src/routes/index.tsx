@@ -25,13 +25,20 @@ import {
   FileText,
   ExternalLink,
   ShieldCheck,
+  CheckCircle2,
+  Calendar,
+  BadgeCheck,
+  Hash,
 } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
 // Easy to update later
+const LEETCODE_SOLVED = 190;
+
 const stats: Array<{
   value?: number;
   decimals?: number;
@@ -44,8 +51,16 @@ const stats: Array<{
   { static: "AWS", label: "Machine Learning Engineer", sub: "Associate" },
   { static: "Alstom", label: "Industry Internship", sub: "Data Science & ML" },
   { static: "Research", label: "2 Internships", sub: "QML + Audio" },
-  { value: 190, suffix: "+", label: "LeetCode Problems", sub: "Solved" },
+  { value: LEETCODE_SOLVED, suffix: "+", label: "LeetCode Problems", sub: "Solved" },
 ];
+
+const currentlyItems = [
+  "Preparing for AWS Certified Solutions Architect – Associate",
+  "Building a BEV Intelligent Power Module failure prediction system",
+  "Researching deep learning based audio steganography",
+  "Solving Striver's DSA Sheet",
+];
+
 
 type Project = {
   title: string;
@@ -108,18 +123,19 @@ const research = [
     title:
       "Robustness of Hybrid-Classical Binary Classifiers Under Realistic Remote Sensing Degradations",
     status: "Journal Submitted",
-    meta: "Submitted to Earth Science Informatics · 2026",
+    pills: ["Journal Submitted", "Earth Science Informatics", "2026"],
     description:
       "Research investigating the robustness of hybrid quantum-classical classifiers under realistic remote sensing degradations.",
   },
   {
     title: "Deep Learning Based Audio Steganography",
     status: "Ongoing Research",
-    meta: "SCOPE SRIP, VIT Chennai",
+    pills: ["SRIP Internship", "SCOPE, VIT Chennai", "2025"],
     description:
       "Research focused on improving payload capacity, imperceptibility, and robustness in audio steganography using deep learning techniques.",
   },
 ];
+
 
 const skillGroups = [
   {
@@ -175,9 +191,10 @@ function Portfolio() {
               </Reveal>
               <Reveal delay={160}>
                 <p className="mt-8 max-w-xl text-xl md:text-2xl leading-snug tracking-tight text-balance">
-                  Computer Science student exploring machine learning, software
-                  engineering and intelligent systems.
+                  Computer Science student building practical machine learning
+                  systems through software engineering and research.
                 </p>
+
               </Reveal>
               <Reveal delay={240}>
                 <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
@@ -196,11 +213,13 @@ function Portfolio() {
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                   <a
-                    href="#contact"
+                    href="/resume.pdf"
+                    download
                     className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium hover:bg-subtle transition-all"
                   >
-                    Contact
+                    <FileText className="h-4 w-4" /> Download Resume
                   </a>
+
                 </div>
               </Reveal>
             </div>
@@ -258,16 +277,23 @@ function Portfolio() {
           <p className="text-lg leading-relaxed text-muted-foreground">
             Alongside academics, I've completed an industry internship at
             Alstom, earned the AWS Certified Machine Learning Engineer –
-            Associate certification, and actively contribute to research in
+            Associate certification, and currently contributing to research in
             quantum machine learning and deep learning. Outside academics, I
             enjoy solving algorithmic problems, reading, and continuously
             improving my engineering skills through personal projects.
           </p>
+
         </div>
       </Section>
 
       {/* WORK */}
-      <Section id="work" eyebrow="02 — Selected Work" title="Things I'm Building.">
+      <Section
+        id="work"
+        eyebrow="02 — Selected Work"
+        title="Things I'm Building."
+        subtitle="A selection of projects spanning software engineering, machine learning and research."
+      >
+
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((p, i) => (
             <Reveal key={p.title} delay={i * 60}>
@@ -328,7 +354,17 @@ function Portfolio() {
                 <h3 className="text-xl font-medium tracking-tight">{e.role}</h3>
                 <span className="text-xs font-mono text-muted-foreground">{e.period}</span>
               </div>
-              <div className="text-sm text-primary mt-1">{e.company}</div>
+              <div className="mt-2 flex items-center gap-2.5">
+                <span
+                  aria-hidden
+                  className="inline-flex h-6 w-6 items-center justify-center rounded-md border border-border bg-subtle text-[10px] font-mono font-semibold tracking-tight text-primary"
+                  title="Alstom"
+                >
+                  AL
+                </span>
+                <span className="text-sm text-primary">{e.company}</span>
+              </div>
+
               <ul className="mt-3 space-y-2 max-w-2xl">
                 {e.bullets.map((b) => (
                   <li key={b} className="text-[15px] leading-relaxed text-muted-foreground flex gap-3">
@@ -359,9 +395,17 @@ function Portfolio() {
                 <h3 className="mt-5 text-lg font-medium tracking-tight leading-snug">
                   {r.title}
                 </h3>
-                <div className="mt-2 text-xs font-mono text-muted-foreground">
-                  {r.meta}
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {r.pills.map((pill) => (
+                    <span
+                      key={pill}
+                      className="text-[11px] font-mono rounded-md bg-subtle border border-border px-2 py-1 text-muted-foreground"
+                    >
+                      {pill}
+                    </span>
+                  ))}
                 </div>
+
                 <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
                   {r.description}
                 </p>
@@ -398,9 +442,15 @@ function Portfolio() {
                 <h3 className="mt-1 text-xl font-medium tracking-tight">
                   AWS Certified Machine Learning Engineer – Associate
                 </h3>
-                <div className="text-sm text-muted-foreground mt-1">
-                  Click to view credential details
+                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs font-mono text-muted-foreground">
+                  <span className="inline-flex items-center gap-1.5">
+                    <Calendar className="h-3.5 w-3.5" /> Issued June 2026
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <ShieldCheck className="h-3.5 w-3.5" /> Valid until June 2029
+                  </span>
                 </div>
+
               </div>
               <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-all group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </div>
@@ -408,59 +458,75 @@ function Portfolio() {
         </Reveal>
 
         <Dialog open={certOpen} onOpenChange={setCertOpen}>
-          <DialogContent className="sm:max-w-lg">
-            <DialogHeader>
-              <div className="mx-auto mb-4 h-28 w-28 rounded-2xl bg-gradient-to-br from-[#232F3E] to-[#131A22] flex items-center justify-center shadow-md">
-                <div className="text-center leading-tight">
-                  <div className="text-[11px] font-mono uppercase tracking-widest text-[#FF9900]">
-                    AWS
-                  </div>
-                  <div className="text-[10px] font-mono uppercase tracking-wider text-white/80 mt-1">
-                    Certified
-                  </div>
-                  <ShieldCheck className="h-6 w-6 text-[#FF9900] mx-auto mt-1.5" />
-                  <div className="text-[8px] font-mono uppercase tracking-wider text-white/70 mt-1">
-                    ML Engineer
+          <DialogContent className="sm:max-w-lg p-0 overflow-hidden">
+            <div className="bg-gradient-to-b from-subtle to-background border-b border-border px-6 pt-8 pb-6">
+              <DialogHeader>
+                <div className="mx-auto mb-4 h-28 w-28 rounded-2xl bg-gradient-to-br from-[#232F3E] to-[#131A22] flex items-center justify-center shadow-md ring-1 ring-black/5">
+                  <div className="text-center leading-tight">
+                    <div className="text-[11px] font-mono uppercase tracking-widest text-[#FF9900]">
+                      AWS
+                    </div>
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-white/80 mt-1">
+                      Certified
+                    </div>
+                    <ShieldCheck className="h-6 w-6 text-[#FF9900] mx-auto mt-1.5" />
+                    <div className="text-[8px] font-mono uppercase tracking-wider text-white/70 mt-1">
+                      ML Engineer
+                    </div>
                   </div>
                 </div>
-              </div>
-              <DialogTitle className="text-center text-xl">
-                AWS Certified Machine Learning Engineer – Associate
-              </DialogTitle>
-              <DialogDescription className="text-center">
-                Issued by Amazon Web Services
-              </DialogDescription>
-            </DialogHeader>
-            <div className="mt-2 grid grid-cols-2 gap-4 text-sm">
-              <div className="rounded-lg border border-border bg-subtle p-4">
-                <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                  Issued
+                <DialogTitle className="text-center text-xl">
+                  AWS Certified Machine Learning Engineer – Associate
+                </DialogTitle>
+                <DialogDescription className="text-center">
+                  Issued by Amazon Web Services
+                </DialogDescription>
+                <div className="mt-3 flex items-center justify-center gap-1.5 text-xs font-mono text-primary">
+                  <BadgeCheck className="h-3.5 w-3.5" /> Verified credential
                 </div>
-                <div className="mt-1 font-medium">—</div>
-              </div>
-              <div className="rounded-lg border border-border bg-subtle p-4">
-                <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                  Expires
-                </div>
-                <div className="mt-1 font-medium">—</div>
-              </div>
+              </DialogHeader>
             </div>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-4 py-2 text-sm font-medium hover:bg-foreground/90 transition-colors"
-              >
-                <ShieldCheck className="h-4 w-4" /> Verify credential
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium hover:bg-subtle transition-colors"
-              >
-                <ExternalLink className="h-4 w-4" /> View on Credly
-              </a>
+
+            <div className="px-6 py-6 space-y-4">
+              <div className="grid grid-cols-2 gap-3 text-sm">
+                <div className="rounded-lg border border-border bg-subtle p-4">
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                    <Calendar className="h-3 w-3" /> Issued
+                  </div>
+                  <div className="mt-1 font-medium">June 2026</div>
+                </div>
+                <div className="rounded-lg border border-border bg-subtle p-4">
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                    <Calendar className="h-3 w-3" /> Expires
+                  </div>
+                  <div className="mt-1 font-medium">June 2029</div>
+                </div>
+              </div>
+              <div className="rounded-lg border border-border bg-subtle p-4">
+                <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                  <Hash className="h-3 w-3" /> Credential ID
+                </div>
+                <div className="mt-1 font-mono text-sm break-all">—</div>
+              </div>
+
+              <div className="flex flex-wrap gap-2 pt-2">
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-4 py-2 text-sm font-medium hover:bg-foreground/90 transition-colors"
+                >
+                  <ShieldCheck className="h-4 w-4" /> Verify Credential
+                </a>
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium hover:bg-subtle transition-colors"
+                >
+                  <ExternalLink className="h-4 w-4" /> View on Credly
+                </a>
+              </div>
             </div>
           </DialogContent>
         </Dialog>
+
       </Section>
 
       {/* SKILLS */}
@@ -488,21 +554,37 @@ function Portfolio() {
         </div>
       </Section>
 
+      {/* CURRENTLY */}
+      <Section id="currently" eyebrow="07 — Currently" title="Currently.">
+        <ul className="max-w-2xl space-y-3">
+          {currentlyItems.map((item, i) => (
+            <Reveal key={item} delay={i * 60} as="li">
+              <div className="flex items-start gap-3 rounded-xl border border-border bg-card px-5 py-4 transition-colors hover:border-foreground/20">
+                <CheckCircle2 className="h-4 w-4 mt-0.5 text-primary shrink-0" />
+                <span className="text-[15px] leading-relaxed">{item}</span>
+              </div>
+            </Reveal>
+          ))}
+        </ul>
+      </Section>
+
       {/* CONTACT */}
-      <section id="contact" className="px-6 py-32">
+      <section id="contact" className="px-6 py-32 border-t border-border">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <div className="rounded-3xl border border-border bg-subtle p-12 md:p-20 text-center">
               <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                <Sparkles className="h-3.5 w-3.5" /> 07 — Contact
+                <Sparkles className="h-3.5 w-3.5" /> 08 — Contact
+
               </div>
               <h2 className="mt-4 font-display text-5xl md:text-7xl tracking-tight text-balance">
                 Let's build something <span className="italic text-muted-foreground">worthwhile.</span>
               </h2>
               <p className="mt-6 max-w-xl mx-auto text-muted-foreground">
-                Open to internships, research collaborations, and engineering
-                roles where I can keep learning and contributing.
+                Interested in software engineering, machine learning, research,
+                or simply connecting over interesting technical ideas.
               </p>
+
               <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
                 <a
                   href="mailto:hello@example.com"
@@ -541,7 +623,7 @@ function Portfolio() {
           <div className="flex items-center gap-2 font-mono text-xs">
             <GraduationCap className="h-3.5 w-3.5" /> VIT Chennai
             <span className="mx-2">·</span>
-            <Briefcase className="h-3.5 w-3.5" /> Engineering
+            <Briefcase className="h-3.5 w-3.5" /> Software Engineering · Machine Learning
             <span className="mx-2">·</span>
             <FlaskConical className="h-3.5 w-3.5" /> Research
           </div>
@@ -555,11 +637,13 @@ function Section({
   id,
   eyebrow,
   title,
+  subtitle,
   children,
 }: {
   id: string;
   eyebrow: string;
   title: string;
+  subtitle?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -571,12 +655,20 @@ function Section({
           </div>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="mt-3 font-display text-4xl md:text-6xl tracking-tight text-balance mb-16">
+          <h2 className="mt-3 font-display text-4xl md:text-6xl tracking-tight text-balance">
             {title}
           </h2>
         </Reveal>
-        {children}
+        {subtitle && (
+          <Reveal delay={140}>
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              {subtitle}
+            </p>
+          </Reveal>
+        )}
+        <div className="mt-16">{children}</div>
       </div>
     </section>
   );
 }
+
