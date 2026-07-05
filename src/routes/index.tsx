@@ -599,11 +599,13 @@ function Section({
   id,
   eyebrow,
   title,
+  subtitle,
   children,
 }: {
   id: string;
   eyebrow: string;
   title: string;
+  subtitle?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -615,12 +617,20 @@ function Section({
           </div>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="mt-3 font-display text-4xl md:text-6xl tracking-tight text-balance mb-16">
+          <h2 className="mt-3 font-display text-4xl md:text-6xl tracking-tight text-balance">
             {title}
           </h2>
         </Reveal>
-        {children}
+        {subtitle && (
+          <Reveal delay={140}>
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              {subtitle}
+            </p>
+          </Reveal>
+        )}
+        <div className="mt-16">{children}</div>
       </div>
     </section>
   );
 }
+
