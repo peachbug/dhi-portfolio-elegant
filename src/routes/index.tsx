@@ -186,9 +186,10 @@ function Portfolio() {
               </Reveal>
               <Reveal delay={160}>
                 <p className="mt-8 max-w-xl text-xl md:text-2xl leading-snug tracking-tight text-balance">
-                  Computer Science student exploring machine learning, software
-                  engineering and intelligent systems.
+                  Computer Science student building practical machine learning
+                  systems through software engineering and research.
                 </p>
+
               </Reveal>
               <Reveal delay={240}>
                 <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
