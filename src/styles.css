@@ -38,26 +38,26 @@
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.15 0.005 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.005 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.005 260);
-  --primary: oklch(0.55 0.19 258);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.97 0.003 260);
-  --secondary-foreground: oklch(0.2 0.005 260);
-  --muted: oklch(0.97 0.003 260);
-  --muted-foreground: oklch(0.52 0.01 260);
-  --accent: oklch(0.96 0.01 258);
-  --accent-foreground: oklch(0.2 0.005 260);
-  --destructive: oklch(0.6 0.22 27);
+  --background: oklch(0.17 0.025 268);
+  --foreground: oklch(0.97 0.005 260);
+  --card: oklch(0.20 0.025 268);
+  --card-foreground: oklch(0.97 0.005 260);
+  --popover: oklch(0.20 0.025 268);
+  --popover-foreground: oklch(0.97 0.005 260);
+  --primary: oklch(0.68 0.14 258);
+  --primary-foreground: oklch(0.15 0.02 265);
+  --secondary: oklch(0.24 0.022 268);
+  --secondary-foreground: oklch(0.95 0.005 260);
+  --muted: oklch(0.24 0.022 268);
+  --muted-foreground: oklch(0.70 0.015 265);
+  --accent: oklch(0.26 0.03 265);
+  --accent-foreground: oklch(0.96 0.005 260);
+  --destructive: oklch(0.6 0.19 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.93 0.005 260);
-  --input: oklch(0.93 0.005 260);
-  --ring: oklch(0.55 0.19 258);
-  --subtle: oklch(0.985 0.002 260);
+  --border: oklch(0.32 0.02 265 / 0.55);
+  --input: oklch(0.32 0.02 265 / 0.55);
+  --ring: oklch(0.68 0.14 258);
+  --subtle: oklch(0.24 0.025 268 / 0.6);
 }
 
 @layer base {
@@ -66,9 +66,11 @@
   }
   html {
     scroll-behavior: smooth;
+    background-color: #050816;
   }
   body {
-    background-color: var(--color-background);
+    /* transparent so the fixed animated background (behind content) is visible */
+    background-color: transparent;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
