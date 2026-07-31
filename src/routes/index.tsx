@@ -169,7 +169,7 @@ function Portfolio() {
   const [certOpen, setCertOpen] = useState(false);
 
   return (
-    <div id="top" className="min-h-screen bg-background text-foreground">
+    <div id="top" className="min-h-screen bg-transparent text-foreground">
       <Nav />
 
       {/* HERO */}
@@ -215,7 +215,7 @@ function Portfolio() {
                   <a
                     href="/resume.pdf"
                     download
-                    className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium hover:bg-subtle transition-all"
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 backdrop-blur-md px-5 py-2.5 text-sm font-medium hover:bg-subtle transition-all"
                   >
                     <FileText className="h-4 w-4" /> Download Resume
                   </a>
@@ -244,7 +244,7 @@ function Portfolio() {
           {/* Stats */}
           <div className="mt-24 grid grid-cols-2 md:grid-cols-5 gap-px rounded-2xl overflow-hidden border border-border bg-border">
             {stats.map((s, i) => (
-              <Reveal key={s.label} delay={i * 60} className="bg-background p-6">
+              <Reveal key={s.label} delay={i * 60} className="bg-background/70 backdrop-blur-md p-6">
                 <div className="font-display text-4xl md:text-5xl tracking-tight">
                   {s.static ? (
                     s.static
@@ -518,7 +518,7 @@ function Portfolio() {
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium hover:bg-subtle transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 backdrop-blur-md px-4 py-2 text-sm font-medium hover:bg-subtle transition-colors"
                 >
                   <ExternalLink className="h-4 w-4" /> View on Credly
                 </a>
@@ -542,7 +542,7 @@ function Portfolio() {
                   {g.items.map((s) => (
                     <span
                       key={s}
-                      className="cursor-default rounded-full border border-border bg-background px-4 py-1.5 text-sm transition-all duration-200 hover:border-foreground/40 hover:bg-subtle hover:-translate-y-0.5"
+                      className="cursor-default rounded-full border border-border bg-background/60 backdrop-blur-md px-4 py-1.5 text-sm transition-all duration-200 hover:border-foreground/40 hover:bg-subtle hover:-translate-y-0.5"
                     >
                       {s}
                     </span>
@@ -594,19 +594,19 @@ function Portfolio() {
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium hover:bg-background/60 transition-all"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 backdrop-blur-md px-5 py-2.5 text-sm font-medium hover:bg-background/60 transition-all"
                 >
                   <Linkedin className="h-4 w-4" /> LinkedIn
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium hover:bg-background/60 transition-all"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 backdrop-blur-md px-5 py-2.5 text-sm font-medium hover:bg-background/60 transition-all"
                 >
                   <Github className="h-4 w-4" /> GitHub
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium hover:bg-background/60 transition-all"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 backdrop-blur-md px-5 py-2.5 text-sm font-medium hover:bg-background/60 transition-all"
                 >
                   <FileText className="h-4 w-4" /> Resume
                 </a>
